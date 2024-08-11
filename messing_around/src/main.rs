@@ -23,6 +23,12 @@ fn main() {
 
     let str: String = weird_function().to_string();
     println!("{}", str);
+
+    println!("The value of the loop function is {}", loop_function());
+
+    for num in arr {
+        println!("The number in the array is {num}");
+    }
 }
 
 fn random_number_generator(range: RangeInclusive<i32>) -> i32 {
@@ -33,4 +39,18 @@ fn random_number_generator(range: RangeInclusive<i32>) -> i32 {
 fn weird_function() -> i32 {
     if 1 == 1 { return 22 }
     33
+}
+
+fn loop_function() -> i32 {
+    let mut counter: i32 = 0;
+    
+    let result: i32 = 'coutner_loop: loop {
+        counter += 1;
+
+        if counter > 9 {
+            break 'coutner_loop counter * 2;
+        }
+    };
+
+    return result;
 }
