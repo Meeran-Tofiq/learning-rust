@@ -18,7 +18,9 @@ fn main() {
     let str: String = String::from("Hola, soy Dora!");
     let len = calculate_length(&str);
 
-    println!("Str is {str}, and length is {len}")
+    println!("Str is {str}, and length is {len}");
+
+    println!("{}", first_word(&str));
 }
 
 fn takes_onwership(some_string: String) {
@@ -31,4 +33,16 @@ fn makes_copy(num: i32) {
 
 fn calculate_length(str: &String) -> usize {
     str.len()
+}
+
+fn first_word(str: &str) -> &str {
+    let bytes = str.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' || item == b',' {
+            return &str[..i];
+        }
+    }
+
+    &str[..]
 }
