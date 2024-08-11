@@ -29,6 +29,8 @@ fn main() {
     for num in arr {
         println!("The number in the array is {num}");
     }
+
+    space_liftoff();
 }
 
 fn random_number_generator(range: RangeInclusive<i32>) -> i32 {
@@ -53,4 +55,11 @@ fn loop_function() -> i32 {
     };
 
     return result;
+}
+
+fn space_liftoff() -> () {
+    for number in (1 ..= 3).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
 }
