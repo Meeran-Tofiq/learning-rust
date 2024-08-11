@@ -15,7 +15,8 @@ fn main() {
     makes_copy(x);
     println!("Number is {x}");
 
-    let (str, len): (String, usize) = calculate_length(String::from("Hola, soy Dora!"));
+    let str: String = String::from("Hola, soy Dora!");
+    let len = calculate_length(&str);
 
     println!("Str is {str}, and length is {len}")
 }
@@ -28,10 +29,6 @@ fn makes_copy(num: i32) {
     println!("Number is {num}");
 }
 
-fn calculate_length(str: String) -> (String, usize) {
-    let length: usize = str.len();
-
-    println!("Length is {length}");
-
-    (str, length)
-} 
+fn calculate_length(str: &String) -> usize {
+    str.len()
+}
