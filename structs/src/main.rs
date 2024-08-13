@@ -7,6 +7,18 @@ struct User {
     email: String
 }
 
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 fn create_user(first_name: String, last_name: String, age: i8, email: String) -> User {
     User {
         first_name,
@@ -44,5 +56,16 @@ fn main() {
     println!("{user_b:#?}");
     dbg!(&user_b);
 
-    println!("{}", user_b.first_name)
+    println!("{}", user_b.first_name);
+
+    let rect1 = Rectangle {
+        width: 35,
+        height: 45
+    };
+
+    print_rect_area(&rect1);
+}
+
+fn print_rect_area(rect: &Rectangle) {
+    println!("The area of {rect:?} is {}", rect.area());
 }
