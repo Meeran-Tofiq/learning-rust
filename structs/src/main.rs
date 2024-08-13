@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct User {
     first_name: String,
     last_name: String,
@@ -39,4 +40,9 @@ fn main() {
 
     println!("{}", user_b.first_name);
     println!("{}", line.0.0);
+
+    println!("{user_b:#?}");
+    dbg!(&user_b);
+
+    println!("{}", user_b.first_name)
 }
