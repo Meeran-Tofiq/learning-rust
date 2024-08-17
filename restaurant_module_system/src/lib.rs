@@ -1,14 +1,43 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+mod front_of_house;
+
+mod customer {
+    use crate::front_of_house::hosting;
+    use crate::back_of_house;
+    
+    pub fn eat_at_restaurant() {
+        hosting::add_to_waitlist();
+
+        let mut meal = back_of_house::Breakfast::summer("Rye");
+        println!("The meal's toast is {}", meal.toast);
+    }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+fn deliver_oder() {}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+pub mod back_of_house {
+    pub enum Appetizer {
+        Soup,
+        Salad
     }
+
+    pub struct Breakfast {
+        pub toast: String,
+        seasonal_fruit: String
+    }
+
+    impl Breakfast {
+        pub fn summer(toast: &str) -> Breakfast {
+            Breakfast {
+                toast: String::from(toast),
+                seasonal_fruit: String::from("peaches"), 
+            }
+        }
+    }
+
+    fn fix_incorrect_order() {
+        cook_order();
+        super::deliver_oder();
+    }
+
+    pub fn cook_order() {}
 }
