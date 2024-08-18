@@ -18,4 +18,15 @@ fn main() {
     }
 
     println!("Vector is {:?}", x);
+
+    let mut s1 = String::from("foo");
+    let s2 = "bar";
+    s1.push_str(s2);
+    println!("s2 is {s2}");
+
+    let t1: String = String::from("tic");
+    let t2: String = String::from("tac");
+    let t3: String = String::from("toe");
+    let t = format!("{}-{}-{}", t1, t2, t3);
+    println!("{t}");
 }
