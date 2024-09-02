@@ -3,10 +3,12 @@ pub struct Guess {
 }
 
 impl Guess {
-    pub fn new(v: i32) {
-        if v < 1 || v > 100 {
+    pub fn new(value: i32) {
+        if value < 1 || value > 100 {
             panic!("The number will always be between 1 and 100.");
         }
+
+        Guess { value }
     }
 
     pub fn value(&self) -> i32 {
