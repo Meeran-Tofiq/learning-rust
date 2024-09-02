@@ -1,3 +1,27 @@
+use std::fmt::Display;
+
+struct Pair<T> {
+    x: T,
+    y: T
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Pair<T> {
+        Self { x, y }
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x > self.y {
+            println!("The larger number is {}", self.x);
+            return;
+        }
+        
+        println!("The larger number is {}", self.y)
+    }
+}
+
 pub trait Summary {
     fn summarize(&self) -> String {
         format!("(Read more from {}...)", self.format_author())
@@ -67,4 +91,7 @@ fn main() {
 
     let result = largest(&char_list);
     println!("The largest char is {result}");
+
+    let pair: Pair<i32> = Pair::new(17, 35);
+    pair.cmp_display();
 }
