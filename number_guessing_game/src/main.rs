@@ -12,7 +12,18 @@ fn main() {
 
         let mut guess: String = String::new();
         io::stdin().read_line(&mut guess).expect("Could not read your line!");
-        let guess: i32 = guess.trim().parse().expect("You must only enter numbers!"); 
+        let guess: i32 = match guess.trim().parse() {
+            Ok(val) => val,
+            Err(err) => {
+                println!("{:?}", err.to_string());
+                continue;
+            }
+        };
+
+        if guess < 1 || guess > 100 {
+            println!("The number will always be between 1 and 100.");
+            continue;
+        }
 
         match guess.cmp(&random_number) {
             Ordering::Less => println!("Your number was less than the secret number."),
