@@ -1,3 +1,18 @@
+struct ImportantExcerpt<'a> {
+    part: &'a str, 
+}
+
+impl<'a> ImportantExcerpt<'a> {
+    fn level(&self) -> i32 {
+        3
+    }
+
+    fn announce_and_return_part(&self, announcement: &str, x: &str) -> &str {
+        println!("{announcement}");
+        self.part
+    }
+}
+
 fn main() {
     let string1: String = String::from("abcd");
     let string2: &str = "xyz";
