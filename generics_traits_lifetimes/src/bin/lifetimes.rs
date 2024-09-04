@@ -1,3 +1,15 @@
 fn main() {
-    
+    let string1: String = String::from("abcd");
+    let string2: &str = "xyz";
+
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string slice is {result}");
+}
+
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        return x
+    }
+
+    y
 }
